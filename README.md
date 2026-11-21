@@ -32,7 +32,7 @@ An open-source, institutional-grade quantitative execution engine and reactive w
 
 ### 1. Clone & Install Dependencies
 ```bash
-git clone https://github.com/YOUR_USERNAME/MatchSniperSumTerminal.git
+git clone https://github.com/nexusfinancial-dev/MatchSniperSumTerminal.git
 cd MatchSniperSumTerminal
 pip install -r requirements.txt
 ```
