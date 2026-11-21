@@ -1,0 +1,30 @@
+# Credentials & Secrets
+credentials.json
+*/credentials.json
+*.env
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+
+# PyInstaller Build & Dist Artifacts (Large Binaries)
+build/
+dist/
+*.exe
+*.zip
+*.pkg
+*.toc
+*.pyz
+MatchSniperTerminal_Standalone/
+
+# Trade logs & runtime caches
+*.csv
+*.log
+logs/
+
+# IDE & OS
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store

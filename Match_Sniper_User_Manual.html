@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="htmlRoot">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Match Sniper Sum Terminal — User Operating Manual & Comprehensive Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-base: #07090e;
+      --bg-surface: #0d111a;
+      --bg-card: #121824;
+      --bg-card-hover: #172030;
+      --bg-card-inner: #0a0e16;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-bright: rgba(56, 189, 248, 0.3);
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      
+      --emerald: #10b981;
+      --emerald-glow: rgba(16, 185, 129, 0.2);
+      --cyan: #38bdf8;
+      --cyan-glow: rgba(56, 189, 248, 0.2);
+      --purple: #8b5cf6;
+      --purple-glow: rgba(139, 92, 246, 0.2);
+      --amber: #f59e0b;
+      --crimson: #ef4444;
+      --crimson-glow: rgba(239, 68, 68, 0.2);
+
+      --font-ar: 'Cairo', system-ui, sans-serif;
+      --font-en: 'Inter', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      font-family: var(--font-ar);
+      line-height: 1.7;
+      font-size: 14.5px;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 90px;
+    }
+
+    [dir="ltr"] body, html[lang="en"] body {
+      font-family: var(--font-en);
+      direction: ltr;
+      text-align: left;
+    }
+
+    /* Sticky Institutional Header */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13, 17, 26, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #0284c7, #8b5cf6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.35);
+    }
+
+    .brand-text h1 {
+      font-size: 16px;
+      font-weight: 800;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-text p {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .lang-switcher {
+      display: flex;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 3px;
+      gap: 2px;
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .lang-btn.active {
+      background: var(--cyan);
+      color: #041019;
+      box-shadow: 0 0 10px var(--cyan-glow);
+    }
+
+    .btn-action {
+      background: var(--bg-card);
+      color: var(--text-main);
+      border: 1px solid var(--border-subtle);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-action:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--cyan);
+      color: #fff;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #0284c7, #2563eb);
+      color: #fff;
+      border: none;
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #38bdf8, #3b82f6);
+      box-shadow: 0 0 16px var(--cyan-glow);
+    }
+
+    .container {
+      max-width: 1260px;
+      margin: 0 auto;
+      padding: 32px 20px;
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+      background: linear-gradient(180deg, rgba(18, 24, 36, 0.9) 0%, rgba(13, 17, 26, 0.98) 100%);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 32px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+
+    .hero-banner::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      right: -120px;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.18), transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-badge-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-cyan { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
+    .badge-emerald { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+    .badge-purple { background: rgba(139, 92, 246, 0.15); color: #c084fc; border: 1px solid rgba(139, 92, 246, 0.3); }
+    .badge-amber { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+
+    .hero-title {
+      font-size: 28px;
+      font-weight: 900;
+      line-height: 1.3;
+      margin-bottom: 14px;
+      color: #fff;
+    }
+
+    .hero-subtitle {
+      font-size: 15.5px;
+      color: var(--text-muted);
+      max-width: 950px;
+      margin-bottom: 24px;
+    }
+
+    /* Table of contents quick bar */
+    .toc-bar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .toc-pill {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .toc-pill:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--cyan);
+      color: #fff;
+    }
+
+    /* Sections */
+    .section {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 28px;
+      margin-bottom: 28px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-subtle);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Workflow Steps Card */
+    .step-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 16px;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      transition: border-color 0.2s;
+    }
+    .step-card:hover {
+      border-color: var(--border-bright);
+    }
+
+    .step-badge {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #0284c7, #8b5cf6);
+      color: #fff;
+      font-family: var(--font-mono);
+      font-weight: 800;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.3);
+    }
+
+    .step-info {
+      flex: 1;
+    }
+
+    .step-info h4 {
+      font-size: 16px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .step-info p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Submode Grid */
+    .mode-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+    @media (max-width: 768px) {
+      .mode-grid { grid-template-columns: 1fr; }
+    }
+
+    .mode-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mode-card.featured {
+      border-color: rgba(139, 92, 246, 0.5);
+      background: linear-gradient(180deg, rgba(139, 92, 246, 0.08) 0%, rgba(18, 24, 36, 0.9) 100%);
+    }
+
+    .mode-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .mode-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .mode-stats {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .mode-stat-pill {
+      background: var(--bg-card-inner);
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      padding: 3px 8px;
+      font-size: 11px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .mode-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* 2-col and 3-col grids */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+    @media (max-width: 850px) {
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .feature-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 18px;
+    }
+
+    .feature-box h4 {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .feature-box p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Key Tag */
+    .key-badge {
+      display: inline-block;
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: #38bdf8;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    /* Alerts */
+    .alert-box {
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin: 18px 0;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .alert-info {
+      background: rgba(56, 189, 248, 0.08);
+      border-right: 4px solid var(--cyan);
+    }
+    [dir="ltr"] .alert-info {
+      border-right: none;
+      border-left: 4px solid var(--cyan);
+    }
+    .alert-warn {
+      background: rgba(245, 158, 11, 0.08);
+      border-right: 4px solid var(--amber);
+    }
+    [dir="ltr"] .alert-warn {
+      border-right: none;
+      border-left: 4px solid var(--amber);
+    }
+    .alert-success {
+      background: rgba(16, 185, 129, 0.08);
+      border-right: 4px solid var(--emerald);
+    }
+    [dir="ltr"] .alert-success {
+      border-right: none;
+      border-left: 4px solid var(--emerald);
+    }
+
+    .alert-content h4 {
+      font-size: 14.5px;
+      font-weight: 800;
+      margin-bottom: 4px;
+      color: #fff;
+    }
+    .alert-content p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Code Snippets */
+    pre.code-terminal {
+      background: #05070c;
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 14px;
+      color: #38bdf8;
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      line-height: 1.5;
+      overflow-x: auto;
+      direction: ltr !important;
+      text-align: left !important;
+      margin: 10px 0;
+    }
+
+    /* Playbook Card */
+    .playbook-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 22px;
+      position: relative;
+    }
+    .playbook-badge {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+    }
+    [dir="ltr"] .playbook-badge {
+      left: auto;
+      right: 18px;
+    }
+
+    /* Tables */
+    .table-responsive {
+      overflow-x: auto;
+      border-radius: 10px;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-card);
+      margin-top: 14px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: right;
+      font-size: 13px;
+    }
+    [dir="ltr"] table { text-align: left; }
+
+    th {
+      background: #090d15;
+      color: var(--text-muted);
+      font-weight: 700;
+      padding: 10px 14px;
+      font-size: 11.5px;
+      border-bottom: 1px solid var(--border-subtle);
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 10px 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      color: #cbd5e1;
+      font-size: 12.5px;
+    }
+
+    tr:hover td { background: rgba(56, 189, 248, 0.04); }
+
+    /* Lang sections */
+    .lang-section { display: none; }
+    .lang-section.active { display: block; }
+
+    /* Checklist */
+    .check-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .check-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+    .check-icon {
+      color: var(--emerald);
+      font-weight: 800;
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    /* Print styles */
+    @media print {
+      .navbar, .lang-switcher, .btn-action, .toc-bar { display: none !important; }
+      body { background: #fff !important; color: #000 !important; }
+      .section, .hero-banner, .step-card, .mode-card, .feature-box { border-color: #ccc !important; background: #fff !important; color: #000 !important; }
+      .hero-title, .section-title, .step-info h4, .mode-title { color: #000 !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Institutional Navigation Header -->
+  <nav class="navbar">
+    <div class="brand-group">
+      <div class="brand-icon">⚡</div>
+      <div class="brand-text">
+        <h1>MATCH SNIPER SUM &amp; SALVO <span class="badge badge-cyan">PORT 8565</span></h1>
+        <p>OPERATOR MANUAL &amp; SYSTEM BLUEPRINT (BILINGUAL GUIDE)</p>
+      </div>
+    </div>
+
+    <div class="nav-actions">
+      <!-- Language Switcher -->
+      <div class="lang-switcher">
+        <button class="lang-btn active" id="btnLangAr" onclick="switchLanguage('ar')">العربية</button>
+        <button class="lang-btn" id="btnLangEn" onclick="switchLanguage('en')">English</button>
+        <button class="lang-btn" id="btnLangSplit" onclick="switchLanguage('split')">عرض مزدوج</button>
+      </div>
+
+      <a href="http://localhost:8565" target="_blank" class="btn-action btn-primary">
+        <span>🚀</span>
+        <span id="navLiveTerminal">فتح لوحة التحكم</span>
+      </a>
+
+      <a href="Match_Sniper_Capital_Proof.html" target="_blank" class="btn-action" style="border-color:#8b5cf6; color:#c084fc;">
+        <span>📐</span>
+        <span id="navMathProof">الإثبات الرياضي</span>
+      </a>
+
+      <button class="btn-action" onclick="window.print()">
+        <span>🖨️</span>
+        <span id="navPrint">طباعة / PDF</span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <!-- HERO BANNER -->
+    <header class="hero-banner">
+      <div class="hero-badge-row">
+        <span class="badge badge-emerald">🚀 OFFICIAL USER MANUAL</span>
+        <span class="badge badge-cyan">STANDALONE ENGINE V3.0</span>
+        <span class="badge badge-purple">6 TRADING SUB-MODES</span>
+        <span class="badge badge-amber">INSTITUTIONAL QUANT SAFEGUARDS</span>
+      </div>
+
+      <h2 class="hero-title" id="heroTitle">
+        دليل التشغيل والاستخدام الشامل لمنظومة Match Sniper Sum &amp; Salvo Terminal
+      </h2>
+      <p class="hero-subtitle" id="heroSubtitle">
+        دليل تفصيلي خطوة بخطوة للمتداولين والمشغلين: كيفية تثبيت وتشغيل المنظومة، ربط حسابات Deriv وتأمين الـ API، اختيار الأوضاع التشغيلية الأنسب، ضبط الفلاتر الكمية وعتبات الجفاف، وإدارة المخاطر عبر دورات قفل رأس المال والأرباح.
+      </p>
+
+      <!-- Table of Contents Quick Links -->
+      <div class="toc-bar" id="tocBar">
+        <a href="#mod1" class="toc-pill">1. التشغيل والبدء السريع</a>
+        <a href="#mod2" class="toc-pill">2. ضبط مفاتيح Deriv API</a>
+        <a href="#mod3" class="toc-pill">3. الأوضاع التشغيلية الـ 6</a>
+        <a href="#mod4" class="toc-pill">4. الفلاتر وعتبات الجفاف</a>
+        <a href="#mod5" class="toc-pill">5. إدارة المخاطر وقفل الأرباح</a>
+        <a href="#mod6" class="toc-pill">6. مراقبة التداول وسجل الصفقات</a>
+        <a href="#mod7" class="toc-pill">7. سيناريوهات التشغيل الموصى بها</a>
+        <a href="#mod8" class="toc-pill">8. استكشاف الأخطاء والـ FAQ</a>
+      </div>
+    </header>
+
+    <!-- ==================================================================== -->
+    <!-- ARABIC CONTENT SECTION -->
+    <!-- ==================================================================== -->
+    <div id="sectionAr" class="lang-section active">
+
+      <!-- MOD 1: التشغيل والبدء السريع -->
+      <section class="section" id="mod1">
+        <div class="section-header">
+          <div class="section-title">
+            <span>🚀</span>
+            <span>الموديل 1: التشغيل والبدء السريع (Quick Start &amp; Launch)</span>
+          </div>
+          <span class="badge badge-cyan">GETTING STARTED</span>
+        </div>
+
+        <p>
+          تم بناء منظومة <strong>Match Sniper Sum &amp; Salvo Terminal</strong> كمحرك تداول آلي مستقل وخفيف وسريع مبني على <strong>Python FastAPI</strong> و <strong>WebSockets</strong> عالية التردد للاتصال المباشر مع سيرفرات وسيط Deriv.
+        </p>
+
+        <div class="step-card">
+          <div class="step-badge">1</div>
+          <div class="step-info">
+            <h4>تشغيل الخادم المحلي (Local Engine Startup)</h4>
+            <p>
+              توجه إلى مجلد المشروع <code>d:\FuseTerminal\MatchSniperSumTerminal</code> وانقر نقراً مزدوجاً على الملف التنفيذي:
+            </p>
+            <pre class="code-terminal">START_MATCH_SNIPER_SUM.bat</pre>
+            <p>
+              أو يمكنك تشغيله يدوياً عبر سطر الأوامر (Command Prompt / PowerShell):
+            </p>
+            <pre class="code-terminal">python app.py</pre>
+            <p>
+              يقوم الخادم بتهيئة محرك التدفق العام للأسعار وفتح بوابة التحكم على المنفذ المحلي <strong>8565</strong>.
+            </p>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-badge">2</div>
+          <div class="step-info">
+            <h4>فتح واجهة التحكم (Open Cyber Dashboard)</h4>
+            <p>
+              افتح متصفح الويب المفضل لديك (Google Chrome أو Microsoft Edge موصى بهما) وانتقل إلى العنوان:
+            </p>
+            <pre class="code-terminal">http://localhost:8565</pre>
+            <p>
+              ستظهر لك واجهة المراقبة والتحكم المظلمة Cyber Bento Dashboard المزودة بتدفق حي للأسعار ودفتر الصفقات.
+            </p>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-badge">3</div>
+          <div class="step-info">
+            <h4>التحقق من حالة الاتصال (WebSocket Stream Heartbeat)</h4>
+            <p>
+              تأكد من إضاءة مؤشر الاتصال باللون الأخضر في أعلى الشاشة:
+              <br>
+              <span class="key-badge">WS: CONNECTED</span> &bull; <span class="key-badge">PUBLIC STREAM: ACTIVE</span>
+              <br>
+              يعني ذلك أن تدفق بيانات الأسعار اللحظية (Ticks) لمؤشرات R_100, R_75, R_50, R_25, R_10 يعمل بنجاح وبدون أي تأخير.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- MOD 2: ضبط مفاتيح Deriv API -->
+      <section class="section" id="mod2">
+        <div class="section-header">
+          <div class="section-title">
+            <span>🔑</span>
+            <span>الموديل 2: إعداد وربط مفاتيح التداول (Deriv API Credentials Setup)</span>
+          </div>
+          <span class="badge badge-purple">AUTHENTICATION</span>
+        </div>
+
+        <p>
+          تتصل المنظومة بحسابك عبر واجهة برمجة التطبيقات الرسمية لـ Deriv باستخدام التوكن المشفر (API Token)، مما يضمن عدم حفظ أو طلب أي كلمة مرور شخصية.
+        </p>
+
+        <div class="grid-2">
+          <div class="feature-box">
+            <h4><span>1️⃣</span> استخراج التوكن من منصة Deriv</h4>
+            <ol style="margin: 8px 20px; line-height: 1.8; font-size: 13px; color: var(--text-muted);">
+              <li>سجل الدخول إلى حسابك في موقع Deriv الرسمي.</li>
+              <li>توجه إلى <strong>Manage account &gt; Security &amp; safety &gt; API token</strong>.</li>
+              <li>حدد الصلاحيات المطلوبة: <strong>Read</strong> (للقراءة والرصيد) و <strong>Trade</strong> (لتنفيذ الصفقات).</li>
+              <li>أدخل اسماً للتوكن (مثلاً: <code>MatchSniper</code>) واضغط على <strong>Create</strong>.</li>
+              <li>انسخ رمز التوكن الظاهر واحتفظ به بأمان.</li>
+            </ol>
+          </div>
+
+          <div class="feature-box">
+            <h4><span>2️⃣</span> إدخال المفاتيح في لوحة التحكم</h4>
+            <ol style="margin: 8px 20px; line-height: 1.8; font-size: 13px; color: var(--text-muted);">
+              <li>في الشريط العلوي للوحة التحكم، انقر على زر الترس الإعدادي: <span class="key-badge">⚙️</span>.</li>
+              <li>ستفتح لك نافذة إعدادات المفاتيح (Credentials Configuration Modal).</li>
+              <li>أدخل رقم حسابك التجريبي (Demo ID يبدأ بـ <code>VRTC...</code> أو <code>DOT...</code>) والتوكن التجريبي.</li>
+              <li>أدخل رقم حسابك الحقيقي (Real ID يبدأ بـ <code>CR...</code> أو <code>ROT...</code>) والتوكن الحقيقي.</li>
+              <li>اضغط على <strong>Save &amp; Connect</strong> لحفظ المفاتيح في ملف <code>credentials.json</code> المشفر محلياً.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="alert-box alert-warn">
+          <div style="font-size:22px;">⚠️</div>
+          <div class="alert-content">
+            <h4>قاعدة الأمان الذهبية: البدء دائماً بالحساب التجريبي (DEMO)</h4>
+            <p>
+              يحتوي النظام على مبدل أمان في أعلى اليسار (<span class="key-badge">DEMO</span> / <span class="key-badge">REAL</span>). لا تقم أبداً بالتحويل إلى الحساب الحقيقي قبل اختبار الاستراتيجية والفلاتر على الحساب التجريبي لمدة كافية والتأكد من توافق إعداداتك مع رصيدك.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- MOD 3: الأوضاع التشغيلية الستة -->
+      <section class="section" id="mod3">
+        <div class="section-header">
+          <div class="section-title">
+            <span>🎯</span>
+            <span>الموديل 3: الأوضاع التشغيلية الستة (The 6 Specialized Sub-Modes)</span>
+          </div>
+          <span class="badge badge-emerald">STRATEGY MATRIX</span>
+        </div>
+
+        <p>
+          توفر المنظومة 6 استراتيجيات رياضية مختلفة لاقتناص الأرقام، لكل منها عائد صافٍ ونسبة فوز وهندسة تعافٍ خاصة:
+        </p>
+
+        <div class="mode-grid">
+          <!-- Mode 1 -->
+          <div class="mode-card">
+            <div>
+              <div class="mode-header">
+                <div class="mode-title"><span>🎯</span> 1. SOLO MATCH SNIPER</div>
+                <span class="badge badge-purple">+734.0%</span>
+              </div>
+              <div class="mode-stats" style="margin: 8px 0;">
+                <span class="mode-stat-pill">عقد: DIGITMATCH (1t)</span>
+                <span class="mode-stat-pill">نسبة الفوز: 10.0%</span>
+                <span class="mode-stat-pill">السلم: 17 مرحلة</span>
+              </div>
+              <p class="mode-desc">
+                اقتناص الرقم الفردي الأكثر جفافاً في الأصل عبر عقد مطابقة تام. يتضمن درع حماية مسطح لأول 7 مراحل (Steps 0–6) بنفس حجم العقد الأساسي لامتصاص التذبذب، مع سلم تعافٍ ممتد لـ 17 مرحلة بنسبة فوز تراكمية 83.32%.
+              </p>
+            </div>
+            <div style="font-size:11.5px; color:#38bdf8; font-weight:700;">مناسب لـ: الصفقات عالية العائد برأس مال خفيف.</div>
+          </div>
+
+          <!-- Mode 2 -->
+          <div class="mode-card">
+            <div>
+              <div class="mode-header">
+                <div class="mode-title"><span>⚡</span> 2. TWIN-MATCH BRACKETING</div>
+                <span class="badge badge-emerald">+317.0%</span>
+              </div>
+              <div class="mode-stats" style="margin: 8px 0;">
+                <span class="mode-stat-pill">عقد: 2x DIGITMATCH</span>
+                <span class="mode-stat-pill">نسبة الفوز: 20.0%</span>
+                <span class="mode-stat-pill">السلم: 20 مرحلة</span>
+              </div>
+              <p class="mode-desc">
+                تنفيذ صفقتين متزامنتين على أكثر رقمين جفافاً معاً في نفس التكة. مضاعف العائد الصافي +317.0%، مع درع حماية مسطح لأول 3 خطوات (0–2)، وسلم استيعابي لـ 20 مرحلة بنسبة فوز تراكمية 98.85%.
+              </p>
+            </div>
+            <div style="font-size:11.5px; color:#10b981; font-weight:700;">مناسب لـ: التوازن المتقن بين العائد المرتفع والأمان.</div>
+          </div>
+
+          <!-- Mode 3 -->
+          <div class="mode-card">
+            <div>
+              <div class="mode-header">
+                <div class="mode-title"><span>🛡️</span> 3. CLUSTER SNIPER</div>
+                <span class="badge badge-cyan">+213.0%</span>
+              </div>
+              <div class="mode-stats" style="margin: 8px 0;">
+                <span class="mode-stat-pill">UNDER 3 / OVER 6</span>
+                <span class="mode-stat-pill">نسبة الفوز: 30.0%</span>
+                <span class="mode-stat-pill">السلم: 12 مرحلة</span>
+              </div>
+              <p class="mode-desc">
+                عقد واحد يغطي 3 أرقام كاملة: إما الأرقام الصغرى {0,1,2} أو الأرقام الكبرى {7,8,9}. نسبة الفوز بالصفقة الواحدة 30% مع عائد صافٍ +213.0%. سلم استيعابي لـ 12 مرحلة باستنزاف $49.44 ونسبة نجاح 98.6%.
+              </p>
+            </div>
+            <div style="font-size:11.5px; color:#38bdf8; font-weight:700;">مناسب لـ: الحسابات الصغيرة وتكرار الصفقات السريع.</div>
+          </div>
+
+          <!-- Mode 4 (FEATURED) -->
+          <div class="mode-card featured">
+            <div>
+              <div class="mode-header">
+                <div class="mode-title"><span style="color:#c084fc;">🦅</span> 4. DUO WING (THE CITADEL)</div>
+                <span class="badge badge-purple" style="background:#8b5cf6; color:#fff;">+354.5% ★ موصى به</span>
+              </div>
+              <div class="mode-stats" style="margin: 8px 0;">
+                <span class="mode-stat-pill" style="border-color:#8b5cf6;">UNDER 2 / OVER 7</span>
+                <span class="mode-stat-pill" style="color:#34d399;">نسبة الفوز: 20.0%</span>
+                <span class="mode-stat-pill" style="color:#c084fc;">21 مرحلة في $200</span>
+              </div>
+              <p class="mode-desc">
+                الاستراتيجية الرائدة المبرهنة رياضياً: عقد فردي يغطي طرفين {0,1} أو {8,9}. تتيح 21 مرحلة متتالية برأس مال $200 (571% من الصفقة الأولى)، باحتمال خسارة 0.922% ونسبة خسارة متوقعة 0.570% فقط (&lt; 1%)!
+              </p>
+            </div>
+            <div style="font-size:11.5px; color:#c084fc; font-weight:800;">الخيار المؤسسي الأقوى والأعلى أماناً في المنظومة.</div>
+          </div>
+
+          <!-- Mode 5 -->
+          <div class="mode-card">
+            <div>
+              <div class="mode-header">
+                <div class="mode-title"><span>⚖️</span> 5. PARITY DELTA SPREAD</div>
+                <span class="badge badge-emerald">+94.0%</span>
+              </div>
+              <div class="mode-stats" style="margin: 8px 0;">
+                <span class="mode-stat-pill">EVEN / ODD (5 أرقام)</span>
+                <span class="mode-stat-pill">نسبة الفوز: 50.0%</span>
+                <span class="mode-stat-pill">السلم: 6 مراحل</span>
+              </div>
+              <p class="mode-desc">
+                اقتناص الفرق الإحصائي بين الأرقام الزوجية والفردية (Delta Parity). نسبة الفوز في الصفقة الفردية 50% مع عائد صافٍ +94.0%. سلم استيعابي مكثف لـ 6 مراحل فقط بنسبة فوز تراكمية 98.44%.
+              </p>
+            </div>
+            <div style="font-size:11.5px; color:#10b981; font-weight:700;">مناسب لـ: التداول الترددي العالي (Scalping) المستمر.</div>
+          </div>
+
+          <!-- Mode 6 -->
+          <div class="mode-card">
+            <div>
+              <div class="mode-header">
+                <div class="mode-title"><span>🚀</span> 6. PENTA 5X SALVO</div>
+                <span class="badge badge-amber">+66.8%</span>
+              </div>
+              <div class="mode-stats" style="margin: 8px 0;">
+                <span class="mode-stat-pill">Multi-Asset Salvo</span>
+                <span class="mode-stat-pill">نسبة الفوز: 40.95%</span>
+                <span class="mode-stat-pill">السلم: 3 مراحل كحد أقصى</span>
+              </div>
+              <p class="mode-desc">
+                إطلاق رشقة صفقات متزامنة في المرحلة الأولى عبر أصول متعددة معاً. في حال التعثر، يتم إطلاق رشقات تعافٍ مصغرة محسوبة بمعادلة Kelly Criterion تضمن أن أي إصابة واحدة تغطي الاستنزاف بالكامل.
+              </p>
+            </div>
+            <div style="font-size:11.5px; color:#fbbf24; font-weight:700;">مناسب لـ: التداول الجماعي واقتناص الارتدادات المتقاطعة.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MOD 4: الفلاتر الكمية وعتبات الجفاف -->
+      <section class="section" id="mod4">
+        <div class="section-header">
+          <div class="section-title">
+            <span>⚙️</span>
+            <span>الموديل 4: الفلاتر الكمية وعتبات الجفاف (Quant Filters &amp; Thresholds)</span>
+          </div>
+          <span class="badge badge-cyan">CONTROL PANEL</span>
+        </div>
+
+        <p>
+          يحتوي شريط الفلاتر الكمية في لوحة التحكم على أدوات ذكاء اصطناعي وفلاتر إحصائية متقدمة لتنقية إشارات الدخول:
+        </p>
+
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>الفلتر / الزر في الواجهة</th>
+                <th>الحالة الموصى بها</th>
+                <th>الوظيفة والآلية الرياضية</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>🤖 AI COMMANDER</strong></td>
+                <td><span class="badge badge-emerald">موصى به (ON)</span></td>
+                <td>نظام القيادة الذاتية: يضبط حجم العقد وعدد خطوات السلم أوتوماتيكياً حسب رصيد الحساب ($15 &rarr; $200+) لمنع كسر رأس المال.</td>
+              </tr>
+              <tr>
+                <td><strong>🧟 ZOMBIE FILTER</strong></td>
+                <td><span class="badge badge-emerald">مفعل (ON)</span></td>
+                <td>يتجاهل الأرقام غير العشوائية التي تتكرر بمعدل شاذ (مثلاً أكثر من 5 مرات في آخر 100 تكة) لتجنب التلاعب.</td>
+              </tr>
+              <tr>
+                <td><strong>🎯 ZOMBIE HUNTER</strong></td>
+                <td><span class="badge badge-cyan">اختياري</span></td>
+                <td>عكس فلتر الزومبي: يطارد الأرقام الأكثر تكراراً واستمراراً عند ملاحظة موجات اتجاهية متتالية.</td>
+              </tr>
+              <tr>
+                <td><strong>⚡ SQUEEZE GATE</strong></td>
+                <td><span class="badge badge-purple">حسب النمط</span></td>
+                <td>بوابة الانضغاط: تحظر التداول عند حدوث فترات ضغط سعري غير طبيعي وتنتظر الانفجار الإحصائي.</td>
+              </tr>
+              <tr>
+                <td><strong>🔁 REPEAT LOSS</strong></td>
+                <td><span class="badge badge-emerald">مفعل (ON)</span></td>
+                <td>إعادة الدخول التلقائي في السلم عند حدوث خسارة لضمان تفعيل مرحلة التعافي التالية فوراً.</td>
+              </tr>
+              <tr>
+                <td><strong>🛡️ 3-STRIKE ROTATION</strong></td>
+                <td><span class="badge badge-emerald">مفعل (3-5 STRIKES)</span></td>
+                <td>يحدد الحد الأقصى لمحاولات التعافي المتتالية على نفس الرمز (3 إلى 10 سترايك)، ثم يُدوّر إجبارياً إلى رمز آخر لكسر فخ الجفاف المستمر.</td>
+              </tr>
+              <tr>
+                <td><strong>🌱 PRIORITY: FRESH BREAKOUT</strong></td>
+                <td><span class="badge badge-emerald">FRESH BREAKOUT</span></td>
+                <td>يمنح الأولوية للأرقام التي كسرت عتبة الجفاف حديثاً (أقل جفاف مؤهل) بدلاً من الأرقام العالقة في جفاف سحيق.</td>
+              </tr>
+              <tr>
+                <td><strong>⚡ 1-SHOT FAST BUY</strong></td>
+                <td><span class="badge badge-emerald">مفعل (ON)</span></td>
+                <td>شراء فوري بضغطة زر وبدون تأخير لتفادي انزلاق الأسعار بين التكات.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="margin-top:20px;">
+          <h4 style="color:#fff; font-size:15px; margin-bottom:8px;">عتبات الجفاف وإدارة محفظة الرموز (Asset Thresholds):</h4>
+          <p style="color:var(--text-muted); font-size:13px; line-height:1.7;">
+            يمكنك فحص جميع مؤشرات التقلب الخمسة معاً (<span class="key-badge">ALL PURE-R</span>) أو اختيار مؤشر فردي. كما يمكنك تفعيل أو إيقاف أي رمز عبر أزرار <span class="key-badge">⚡ R_100: ON</span> وغيرها. كما تتوفر إعدادات مسبقة سريعة لعتبات الجفاف:
+            <br>
+            &bull; <strong>Fast (3-5t):</strong> دخول سريع وتردد صفقات أعلى.
+            <br>
+            &bull; <strong>Default (4-7t):</strong> الإعداد المتوازن المعتمد في السيرفر.
+            <br>
+            &bull; <strong>Safe (5-7t):</strong> أقصى درجات الفلترة وأمان الدخول.
+          </p>
+        </div>
+      </section>
+
+      <!-- MOD 5: إدارة المخاطر وقفل الأرباح -->
+      <section class="section" id="mod5">
+        <div class="section-header">
+          <div class="section-title">
+            <span>🏛️</span>
+            <span>الموديل 5: إدارة المخاطر وحصن قفل رأس المال (Risk Architecture &amp; Vault)</span>
+          </div>
+          <span class="badge badge-purple">CAPITAL PROTECTION</span>
+        </div>
+
+        <p>
+          تمتلك المنظومة بنية أمان دفاعية مؤتمتة من 3 دورات متتالية لضمان استرجاع رأس المال الأصلي بنسبة 100% والتحول للتداول بأرباح السوق فقط:
+        </p>
+
+        <div class="grid-3">
+          <div class="feature-box" style="border-color: rgba(16, 185, 129, 0.4);">
+            <h4><span style="color:#34d399;">🏛️</span> الدورة 1: قفل رأس المال (Capital Lock)</h4>
+            <p>
+              عندما تبلغ الأرباح الصافية هدف الدورة الأول (المعادل لعمق استنزاف السلم، عادة $123.56 إلى $185.00)، يتم نقل المبلغ كاملاً إلى <strong>الخزنة المشفرة (Vault)</strong>، وترتفع أرضية وقف الخسارة إلى نقطة التعادل <code>session_start_balance</code>.
+              <br>
+              <strong>النتيجة: رأس مالك الأصلي أصبح محمياً بنسبة 100% ولا يمكن خسارته!</strong>
+            </p>
+          </div>
+
+          <div class="feature-box" style="border-color: rgba(56, 189, 248, 0.4);">
+            <h4><span style="color:#38bdf8;">🚀</span> الدورة 2: وقود التوسع (Growth Fuel)</h4>
+            <p>
+              يستمر البوت في التداول مستخدماً الأرباح فقط كوقود نمو دون المساس بأموال الخزنة المحمية، محققاً هدف التوسع التالي دون أي مخاطرة برأس المال الأصلي.
+            </p>
+          </div>
+
+          <div class="feature-box" style="border-color: rgba(139, 92, 246, 0.4);">
+            <h4><span style="color:#c084fc;">👑</span> الدورة 3: قفزة المضاعفة (2X Scaling)</h4>
+            <p>
+              عند اكتمال الدورة 2، تتضاعف طاقة الحساب: يتضاعف العقد الأساسي من $0.35 إلى $0.70 وتتضاعف قدرة السلم التراكمية مع قفل أرباح إضافية في الخزنة تلقائياً.
+            </p>
+          </div>
+        </div>
+
+        <div class="alert-box alert-info" style="margin-top:20px;">
+          <div style="font-size:22px;">🛑</div>
+          <div class="alert-content">
+            <h4>قواطع الأمان وأزرار الإيقاف والتشغيل (Stop-Loss &amp; Circuit Breakers)</h4>
+            <p>
+              &bull; <strong>زر Session Stop-Loss Guard (ENABLED/DISABLED):</strong> مفتاح رئيسي في لوحة التحكم للتحكم في حد خسارة الجلسة بالدولار.
+              <br>
+              &bull; <strong>زر Hard Floor Circuit Breaker (ENABLED/DISABLED):</strong> زر تحكم مخصص لقاطع الرصيد الإلزامي (Hard Floor). يمكنك تفعيله أو تعطيله بنقرة واحدة من البطاقة 1 ومن لوحة التحكم.
+              <br>
+              &bull; <strong>Balance Sync Circuit Breaker:</strong> كل 45 ثانية يتأكد المحرك من الرصيد الحي، ولن يوقف التداول إذا قمت بتعطيل الستوب لوس.
+              <br>
+              &bull; <strong>Emergency Lockout:</strong> حظر فتح أي صفقة جديدة أثناء وجود سلم نشط لم يُحسم بعد.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- MOD 6: مراقبة التداول وسجل الصفقات -->
+      <section class="section" id="mod6">
+        <div class="section-header">
+          <div class="section-title">
+            <span>📊</span>
+            <span>الموديل 6: مراقبة التداول وسجل الصفقات الميداني (Live Monitoring &amp; Telemetry)</span>
+          </div>
+          <span class="badge badge-emerald">EXECUTION LEDGER</span>
+        </div>
+
+        <p>
+          توفر لوحة التحكم شاشات مراقبة لحظية تمنحك رؤية كاملة لكل عملية شراء وبيع:
+        </p>
+
+        <div class="grid-2">
+          <div class="feature-box">
+            <h4><span>📋</span> بطاقات الـ Bento العلوية (Top Bento Deck)</h4>
+            <ul class="check-list">
+              <li><span class="check-icon">✓</span> <strong>Session PnL:</strong> صافي أرباح وخسائر الجلسة الحالية بدقة السنت.</li>
+              <li><span class="check-icon">✓</span> <strong>Vault Locked:</strong> الأرباح المحمية التي تم حجزها بالخزنة ومستحيل خسارتها.</li>
+              <li><span class="check-icon">✓</span> <strong>Executed Trades:</strong> إجمالي الصفقات مع عداد الفوز (W) والخسارة (L) ونسبة الفوز اللحظية.</li>
+              <li><span class="check-icon">✓</span> <strong>Capital Cushion Left:</strong> وسادة الأمان المتبقية في سلم التعافي الحالي.</li>
+              <li><span class="check-icon">✓</span> <strong>Active Recovery Ladder:</strong> المرحلة الحالية من السلم وحجم العقد التالي بدقة.</li>
+            </ul>
+          </div>
+
+          <div class="feature-box">
+            <h4><span>📥</span> دفتر الأستاذ الحي وتصدير البيانات (Ledger &amp; CSV)</h4>
+            <ul class="check-list">
+              <li><span class="check-icon">✓</span> <strong>فلاتر العرض السريعة:</strong> يمكنك عرض <span class="key-badge">ALL</span> أو <span class="key-badge">WINS</span> أو <span class="key-badge">LOSSES</span> أو <span class="key-badge">STEP &gt; 0</span> لعزل صفقات التعافي.</li>
+              <li><span class="check-icon">✓</span> <strong>تحميل ملف CSV:</strong> بالضغط على زر <span class="key-badge">📥 CSV</span> يمكنك تنزيل ملف <code>match_sniper_trades.csv</code> بالكامل لتحليله في Excel أو Python.</li>
+              <li><span class="check-icon">✓</span> <strong>نافذة التلميتري (Event Console):</strong> تعرض سجل الأحداث ورسائل الخادم الداخلية مباشرة.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- MOD 7: سيناريوهات التشغيل الموصى بها -->
+      <section class="section" id="mod7">
+        <div class="section-header">
+          <div class="section-title">
+            <span>🏆</span>
+            <span>الموديل 7: سيناريوهات التشغيل الموصى بها (Recommended Operator Playbooks)</span>
+          </div>
+          <span class="badge badge-purple">STRATEGY PLAYBOOKS</span>
+        </div>
+
+        <div class="grid-3">
+          <!-- Playbook 1 -->
+          <div class="playbook-card">
+            <span class="badge badge-emerald playbook-badge">الأعلى أماناً ★</span>
+            <h4 style="font-size:16px; font-weight:800; color:#fff; margin-bottom:10px;">سيناريو الحصن الرأسمالي (Citadel 571%)</h4>
+            <p style="font-size:13px; color:var(--text-muted); line-height:1.7;">
+              <strong>رأس المال الموصى به:</strong> $150 – $200+
+              <br><strong>الوضع التشغيلي:</strong> Duo Wing Sniper (Under 2 / Over 7)
+              <br><strong>الصفقة الأولى:</strong> $0.35 (مضاعف 571x)
+              <br><strong>الفلاتر:</strong> AI Commander (ON), 3-Strike (3), Zombie (ON)
+              <br><strong>النتيجة:</strong> 21 مرحلة تعافٍ باحتمال خسارة 0.922% وخسارة متوقعة 0.57% (&lt; 1%).
+            </p>
+          </div>
+
+          <!-- Playbook 2 -->
+          <div class="playbook-card">
+            <span class="badge badge-cyan playbook-badge">حسابات صغيرة</span>
+            <h4 style="font-size:16px; font-weight:800; color:#fff; margin-bottom:10px;">سيناريو نمو المحفظة المصغرة (Micro Growth)</h4>
+            <p style="font-size:13px; color:var(--text-muted); line-height:1.7;">
+              <strong>رأس المال الموصى به:</strong> $25 – $50
+              <br><strong>الوضع التشغيلي:</strong> Cluster Sniper (+213%)
+              <br><strong>الصفقة الأولى:</strong> $0.35
+              <br><strong>الفلاتر:</strong> Drought Safe Preset (5-7t), Fast Buy (ON)
+              <br><strong>النتيجة:</strong> نسبة فوز 30% مع سلم استيعابي 12 مرحلة باستنزاف أقصى $49 فقط.
+            </p>
+          </div>
+
+          <!-- Playbook 3 -->
+          <div class="playbook-card">
+            <span class="badge badge-amber playbook-badge">تداول سريع</span>
+            <h4 style="font-size:16px; font-weight:800; color:#fff; margin-bottom:10px;">سيناريو الإسكالبينج الترددي (Parity Scalper)</h4>
+            <p style="font-size:13px; color:var(--text-muted); line-height:1.7;">
+              <strong>رأس المال الموصى به:</strong> $50 – $100
+              <br><strong>الوضع التشغيلي:</strong> Parity Delta Spread (+94%)
+              <br><strong>الصفقة الأولى:</strong> $0.35
+              <br><strong>الفلاتر:</strong> Fast Preset (3-5t), Parity Streak (≥4t)
+              <br><strong>النتيجة:</strong> معدل فوز 50% مع سرعة عالية في حسم السلاسل خلال 1–3 خطوات.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- MOD 8: استكشاف الأخطاء والـ FAQ -->
+      <section class="section" id="mod8">
+        <div class="section-header">
+          <div class="section-title">
+            <span>❓</span>
+            <span>الموديل 8: استكشاف الأخطاء والأسئلة الشائعة (Troubleshooting &amp; FAQ)</span>
+          </div>
+          <span class="badge badge-cyan">SUPPORT</span>
+        </div>
+
+        <div class="grid-2">
+          <div class="feature-box">
+            <h4><span>⚠️</span> كيف أوقف المنظومة بأمان أثناء العمل؟</h4>
+            <p>
+              يُفضل دائماً الضغط على زر <span class="key-badge">STOP ENGINE</span> عندما يكون السلم عند المرحلة 0 (Base Step). إذا كان السلم في مرحلة تعافٍ نشطة (Step &gt; 0)، سيستمر البوت حتى إتمام التعافي بنجاح أو يمكنك إيقافه يدوياً إذا رغبت في قبول الخسارة اللحظية.
+            </p>
+          </div>
+
+          <div class="feature-box">
+            <h4><span>🔌</span> ماذا يحدث إذا انقطع الاتصال بالإنترنت؟</h4>
+            <p>
+              يمتلك المحرك آلية <code>persistent_trading_ws_keepalive_worker</code> التي تعيد الاتصال تلقائياً بسيرفرات Deriv بمجرد عودة الإنترنت، مع التحقق الفوري من نتيجة أي صفقة كانت معلقة.
+            </p>
+          </div>
+
+          <div class="feature-box">
+            <h4><span>🔑</span> ظهور خطأ "Invalid Token" أو عدم تحديث الرصيد؟</h4>
+            <p>
+              تأكد من أن التوكن الذي أنشأته في Deriv يحتوي على صلاحيتي <strong>Read</strong> و <strong>Trade</strong> معاً. ثم أعد إدخاله عبر نافذة الترس ⚙️ واضغط Save &amp; Connect.
+            </p>
+          </div>
+
+          <div class="feature-box">
+            <h4><span>📁</span> أين يتم حفظ سجل الصفقات التاريخي؟</h4>
+            <p>
+              يتم حفظ جميع الصفقات تلقائياً في ملف <code>match_sniper_trades.csv</code> داخل مجلد المشروع، ويمكن فتحه في أي وقت أو تحميله عبر زر 📥 CSV.
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ==================================================================== -->
+    <!-- ENGLISH CONTENT SECTION -->
+    <!-- ==================================================================== -->
+    <div id="sectionEn" class="lang-section" dir="ltr">
+
+      <!-- MOD 1 EN -->
+      <section class="section" id="mod1_en">
+        <div class="section-header">
+          <div class="section-title">
+            <span>🚀</span>
+            <span>Module 1: Quick Start &amp; System Launch</span>
+          </div>
+          <span class="badge badge-cyan">GETTING STARTED</span>
+        </div>
+
+        <p>
+          The <strong>Match Sniper Sum &amp; Salvo Terminal</strong> is an institutional-grade, high-frequency automated execution engine built on <strong>Python FastAPI</strong> and low-latency <strong>WebSockets</strong> for real-time algorithmic trading on Deriv Volatility Indices.
+        </p>
+
+        <div class="step-card">
+          <div class="step-badge">1</div>
+          <div class="step-info">
+            <h4>Start the Local Backend Engine</h4>
+            <p>
+              Navigate to the project workspace directory <code>d:\FuseTerminal\MatchSniperSumTerminal</code> and double-click:
+            </p>
+            <pre class="code-terminal">START_MATCH_SNIPER_SUM.bat</pre>
+            <p>
+              Or launch via terminal / command prompt:
+            </p>
+            <pre class="code-terminal">python app.py</pre>
+            <p>
+              The engine initializes tick streams and binds the Cyber Bento Dashboard to port <strong>8565</strong>.
+            </p>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-badge">2</div>
+          <div class="step-info">
+            <h4>Open the Web Dashboard</h4>
+            <p>
+              Launch Google Chrome or Microsoft Edge and open:
+            </p>
+            <pre class="code-terminal">http://localhost:8565</pre>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-badge">3</div>
+          <div class="step-info">
+            <h4>Verify Stream Heartbeat</h4>
+            <p>
+              Confirm top status badges indicate active telemetry:
+              <br>
+              <span class="key-badge">WS: CONNECTED</span> &bull; <span class="key-badge">PUBLIC STREAM: ACTIVE</span>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- MOD 2 EN -->
+      <section class="section" id="mod2_en">
+        <div class="section-header">
+          <div class="section-title">
+            <span>🔑</span>
+            <span>Module 2: Deriv API Credentials &amp; Account Setup</span>
+          </div>
+          <span class="badge badge-purple">SECURITY</span>
+        </div>
+
+        <div class="grid-2">
+          <div class="feature-box">
+            <h4><span>1️⃣</span> Generate API Token on Deriv</h4>
+            <ol style="margin: 8px 20px; line-height: 1.8; font-size: 13px; color: var(--text-muted);">
+              <li>Log in to your Deriv account.</li>
+              <li>Go to <strong>Manage account &gt; Security &amp; safety &gt; API token</strong>.</li>
+              <li>Enable both <strong>Read</strong> and <strong>Trade</strong> scopes.</li>
+              <li>Name your token (e.g., <code>MatchSniper</code>) and click <strong>Create</strong>.</li>
+              <li>Copy your generated token.</li>
+            </ol>
+          </div>
+
+          <div class="feature-box">
+            <h4><span>2️⃣</span> Configure in Terminal</h4>
+            <ol style="margin: 8px 20px; line-height: 1.8; font-size: 13px; color: var(--text-muted);">
+              <li>Click the gear icon <span class="key-badge">⚙️</span> in the top header.</li>
+              <li>Enter Demo Account ID (<code>VRTC...</code> or <code>DOT...</code>) &amp; Token.</li>
+              <li>Enter Real Account ID (<code>CR...</code> or <code>ROT...</code>) &amp; Token.</li>
+              <li>Click <strong>Save &amp; Connect</strong> to encrypt locally into <code>credentials.json</code>.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="alert-box alert-warn">
+          <div style="font-size:22px;">⚠️</div>
+          <div class="alert-content">
+            <h4>Golden Safety Rule: Always Validate on DEMO First</h4>
+            <p>
+              Use the top-left switcher (<span class="key-badge">DEMO</span> / <span class="key-badge">REAL</span>). Always run and verify strategies in Demo mode before switching live capital to Real execution.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- MOD 3 EN -->
+      <section class="section" id="mod3_en">
+        <div class="section-header">
+          <div class="section-title">
+            <span>🎯</span>
+            <span>Module 3: The 6 Trading Sub-Modes Explained</span>
+          </div>
+          <span class="badge badge-emerald">PROFILES</span>
+        </div>
+
+        <div class="mode-grid">
+          <div class="mode-card">
+            <div class="mode-header"><div class="mode-title"><span>🎯</span> 1. SOLO MATCH SNIPER</div><span class="badge badge-purple">+734.0%</span></div>
+            <p class="mode-desc">Single deepest drought vacuum with DIGITMATCH. Features 7-step flat shield at base stake, 17-step ladder, and 83.32% sequence win prob.</p>
+          </div>
+          <div class="mode-card">
+            <div class="mode-header"><div class="mode-title"><span>⚡</span> 2. TWIN-MATCH BRACKETING</div><span class="badge badge-emerald">+317.0%</span></div>
+            <p class="mode-desc">Dual simultaneous bets on top 2 vacuums. 20% single hit rate, 3-step flat shield, 20-step ladder, 98.85% win prob.</p>
+          </div>
+          <div class="mode-card">
+            <div class="mode-header"><div class="mode-title"><span>🛡️</span> 3. CLUSTER SNIPER</div><span class="badge badge-cyan">+213.0%</span></div>
+            <p class="mode-desc">Under 3 or Over 6 (covers 3 digits). 30% hit rate, 2-step flat shield, 12-step ladder ($49.44 total drain), 98.6% win prob.</p>
+          </div>
+          <div class="mode-card featured">
+            <div class="mode-header"><div class="mode-title"><span style="color:#c084fc;">🦅</span> 4. DUO WING (THE CITADEL)</div><span class="badge badge-purple">+354.5% ★</span></div>
+            <p class="mode-desc">Under 2 or Over 7. Mathematical proof verified: 21 steps in $200 (571% ratio), 0.922% ruin prob, 0.570% expected loss (&lt; 1%). Flagship recommendation.</p>
+          </div>
+          <div class="mode-card">
+            <div class="mode-header"><div class="mode-title"><span>⚖️</span> 5. PARITY DELTA SPREAD</div><span class="badge badge-emerald">+94.0%</span></div>
+            <p class="mode-desc">DigitEven / DigitOdd spread trading. 50% single trade win probability, 6-step citadel, 98.44% win prob.</p>
+          </div>
+          <div class="mode-card">
+            <div class="mode-header"><div class="mode-title"><span>🚀</span> 6. PENTA 5X SALVO</div><span class="badge badge-amber">+66.8%</span></div>
+            <p class="mode-desc">Multi-asset simultaneous salvo on Step 0 followed by Kelly-sized focused recovery salvos. Strict 3-step maximum depth.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- MOD 4 EN -->
+      <section class="section" id="mod4_en">
+        <div class="section-header">
+          <div class="section-title">
+            <span>⚙️</span>
+            <span>Module 4: Quant Filters &amp; Operational Controls</span>
+          </div>
+          <span class="badge badge-cyan">CONTROLS</span>
+        </div>
+
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>Filter / Control</th>
+                <th>Recommended</th>
+                <th>Quantitative Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>🤖 AI COMMANDER</strong></td><td><span class="badge badge-emerald">ON</span></td><td>Dynamic Auto-Scaling: scales stake and depth across account balance ($15 &rarr; $200+).</td></tr>
+              <tr><td><strong>🧟 ZOMBIE FILTER</strong></td><td><span class="badge badge-emerald">ON (≥5/100t)</span></td><td>Filters non-random anomalous repeating digits to prevent false signals.</td></tr>
+              <tr><td><strong>🛡️ 3-STRIKE ROTATION</strong></td><td><span class="badge badge-emerald">3-5 STRIKES</span></td><td>Caps consecutive attempts on single symbol before mandatory cross-asset rotation.</td></tr>
+              <tr><td><strong>🌱 PRIORITY</strong></td><td><span class="badge badge-emerald">FRESH BREAKOUT</span></td><td>Prioritizes fresh threshold breakouts over stagnant extreme droughts.</td></tr>
+              <tr><td><strong>⚡ 1-SHOT FAST BUY</strong></td><td><span class="badge badge-emerald">ON</span></td><td>Instant low-latency WebSocket order dispatch.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- MOD 5 EN -->
+      <section class="section" id="mod5_en">
+        <div class="section-header">
+          <div class="section-title">
+            <span>🏛️</span>
+            <span>Module 5: Risk Architecture &amp; 3-Cycle Compounding</span>
+          </div>
+          <span class="badge badge-purple">FORTRESS</span>
+        </div>
+
+        <div class="grid-3">
+          <div class="feature-box">
+            <h4><span>🏛️</span> Cycle 1: Capital Lock</h4>
+            <p>Once net profit hits the target ($123.56–$185.00), profits move to Vault and Stop-Loss floor ratchets to initial balance (100% de-risked principal).</p>
+          </div>
+          <div class="feature-box">
+            <h4><span>🚀</span> Cycle 2: Growth Fuel</h4>
+            <p>Trades purely on house edge profits without exposing secured vault capital.</p>
+          </div>
+          <div class="feature-box">
+            <h4><span>👑</span> Cycle 3+: 2X Scaling</h4>
+            <p>Doubles base stake ($0.35 &rarr; $0.70) and capacity for geometric compounding.</p>
+          </div>
+        </div>
+
+        <div class="alert-box alert-info" style="margin-top:16px;">
+          <div style="font-size:22px;">🛑</div>
+          <div class="alert-content">
+            <h4>Dedicated Stop-Loss &amp; Circuit Breaker Toggles</h4>
+            <p>
+              &bull; <strong>Session Stop-Loss Guard (ENABLED/DISABLED):</strong> Master toggle for session PnL loss limit.
+              <br>
+              &bull; <strong>Hard Floor Circuit Breaker (ENABLED/DISABLED):</strong> Dedicated toggle for account balance floor protection. When toggled OFF, it completely prevents premature emergency stops.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- MOD 6 EN -->
+      <section class="section" id="mod6_en">
+        <div class="section-header">
+          <div class="section-title">
+            <span>📊</span>
+            <span>Module 6: Monitoring, Execution Ledger &amp; Export</span>
+          </div>
+          <span class="badge badge-emerald">TELEMETRY</span>
+        </div>
+
+        <div class="grid-2">
+          <div class="feature-box">
+            <h4><span>📋</span> Real-time Indicators</h4>
+            <p>Track Session PnL, Vault balance, Win/Loss counters, Ladder depth, and remaining capital cushion live.</p>
+          </div>
+          <div class="feature-box">
+            <h4><span>📥</span> Trade Ledger &amp; CSV Export</h4>
+            <p>Filter trades by ALL, WINS, LOSSES, or STEP &gt; 0. Export full execution history anytime via the <code>📥 CSV</code> button.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- MOD 7 EN -->
+      <section class="section" id="mod7_en">
+        <div class="section-header">
+          <div class="section-title">
+            <span>🏆</span>
+            <span>Module 7: Operator Playbooks</span>
+          </div>
+          <span class="badge badge-purple">PLAYBOOKS</span>
+        </div>
+
+        <div class="grid-3">
+          <div class="playbook-card">
+            <span class="badge badge-emerald playbook-badge">Top Safety</span>
+            <h4>Citadel 571% Playbook</h4>
+            <p style="font-size:13px; color:var(--text-muted); line-height:1.7;">
+              Capital: $150–$200+ | Mode: Duo Wing Sniper | Stake: $0.35 | AI Commander: ON | Expected Loss &lt; 0.57% (&lt; 1%).
+            </p>
+          </div>
+          <div class="playbook-card">
+            <span class="badge badge-cyan playbook-badge">Small Account</span>
+            <h4>Micro Growth Playbook</h4>
+            <p style="font-size:13px; color:var(--text-muted); line-height:1.7;">
+              Capital: $25–$50 | Mode: Cluster Sniper (+213%) | Stake: $0.35 | Safe Preset (5-7t).
+            </p>
+          </div>
+          <div class="playbook-card">
+            <span class="badge badge-amber playbook-badge">High Frequency</span>
+            <h4>Parity Scalper Playbook</h4>
+            <p style="font-size:13px; color:var(--text-muted); line-height:1.7;">
+              Capital: $50–$100 | Mode: Parity Delta Spread (+94%) | 50% Win Rate | Fast 1–3 step resolution.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- MOD 8 EN -->
+      <section class="section" id="mod8_en">
+        <div class="section-header">
+          <div class="section-title">
+            <span>❓</span>
+            <span>Module 8: Troubleshooting &amp; Operational FAQ</span>
+          </div>
+          <span class="badge badge-cyan">FAQ</span>
+        </div>
+
+        <div class="grid-2">
+          <div class="feature-box">
+            <h4><span>⚠️</span> Safe Shutdown Procedure</h4>
+            <p>Click STOP ENGINE when current ladder is at Step 0 (Base Step) to ensure all baskets are cleanly cleared.</p>
+          </div>
+          <div class="feature-box">
+            <h4><span>🔌</span> Network Resilience</h4>
+            <p>Automatic keepalive and exponential reconnect workers restore connection instantly without manual intervention.</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+  </div>
+
+  <script>
+    function switchLanguage(lang) {
+      const root = document.getElementById('htmlRoot');
+      const secAr = document.getElementById('sectionAr');
+      const secEn = document.getElementById('sectionEn');
+      const btnAr = document.getElementById('btnLangAr');
+      const btnEn = document.getElementById('btnLangEn');
+      const btnSplit = document.getElementById('btnLangSplit');
+
+      btnAr.classList.remove('active');
+      btnEn.classList.remove('active');
+      btnSplit.classList.remove('active');
+
+      if (lang === 'ar') {
+        root.setAttribute('lang', 'ar');
+        root.setAttribute('dir', 'rtl');
+        secAr.classList.add('active');
+        secEn.classList.remove('active');
+        btnAr.classList.add('active');
+
+        document.getElementById('heroTitle').textContent = "دليل التشغيل والاستخدام الشامل لمنظومة Match Sniper Sum & Salvo Terminal";
+        document.getElementById('heroSubtitle').textContent = "دليل تفصيلي خطوة بخطوة للمتداولين والمشغلين: كيفية تثبيت وتشغيل المنظومة، ربط حسابات Deriv وتأمين الـ API، اختيار الأوضاع التشغيلية الأنسب، ضبط الفلاتر الكمية وعتبات الجفاف، وإدارة المخاطر عبر دورات قفل رأس المال والأرباح.";
+        document.getElementById('navLiveTerminal').textContent = "فتح لوحة التحكم";
+        document.getElementById('navMathProof').textContent = "الإثبات الرياضي";
+        document.getElementById('navPrint').textContent = "طباعة / PDF";
+      } else if (lang === 'en') {
+        root.setAttribute('lang', 'en');
+        root.setAttribute('dir', 'ltr');
+        secAr.classList.remove('active');
+        secEn.classList.add('active');
+        btnEn.classList.add('active');
+
+        document.getElementById('heroTitle').textContent = "Official Operator Manual & Blueprint for Match Sniper Sum & Salvo Terminal";
+        document.getElementById('heroSubtitle').textContent = "Comprehensive step-by-step technical and operational manual: launching the engine, securing Deriv API credentials, selecting optimal trading sub-modes, fine-tuning quant filters and drought thresholds, and managing risk via capital lock cycles.";
+        document.getElementById('navLiveTerminal').textContent = "Open Dashboard";
+        document.getElementById('navMathProof').textContent = "Math Proof";
+        document.getElementById('navPrint').textContent = "Print / PDF";
+      } else if (lang === 'split') {
+        root.setAttribute('lang', 'ar');
+        root.setAttribute('dir', 'rtl');
+        secAr.classList.add('active');
+        secEn.classList.add('active');
+        btnSplit.classList.add('active');
+      }
+    }
+  </script>
+</body>
+</html>
