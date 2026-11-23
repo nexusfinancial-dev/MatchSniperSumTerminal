@@ -4,6 +4,7 @@
 [![Python: 3.10+](https://img.shields.io/badge/Python-3.10%2B-brightgreen.svg)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/Backend-FastAPI%20%26%20Uvicorn-009688.svg)](https://fastapi.tiangolo.com/)
 [![Support on Giveth](https://img.shields.io/badge/Giveth-Support%20Research-blueviolet?style=flat&logo=ethereum)](https://www.giveth.io/project/fuse-terminal-quant-research-and-algorithmic-engine)
+[![Support on Juicebox](https://img.shields.io/badge/Juicebox-Back%20on%20Base-FF385C?style=flat&logo=ethereum)](https://juicebox.money/base:42)
 
 An open-source, institutional-grade quantitative execution engine and reactive web dashboard designed for synthetic volatility derivatives (Deriv platform). Built from independent empirical mathematical research, **Match Sniper Sum Terminal** delivers ultra-low latency execution via persistent WebSockets, paired with disciplined non-linear risk containment.
 
@@ -75,8 +76,9 @@ Explore the interactive mathematical proof and capital degradation models includ
 This software is provided as an open-source educational and quantitative research tool under the MIT License. Trading synthetic volatility indices involves financial risk. The mathematical models are designed to enforce structural risk discipline, but no algorithmic system can guarantee profit. Always thoroughly test on Demo accounts first.
 
 ### Support Open Research
-If this open-source tool and research adds value to your algorithmic development, consider supporting our ongoing quantitative modeling on Giveth:  
-👉 **[Support Fuse Terminal on Giveth](https://www.giveth.io/project/fuse-terminal-quant-research-and-algorithmic-engine)**
+If this open-source tool and research adds value to your algorithmic development, consider supporting our ongoing quantitative modeling via our decentralized public funding channels:  
+- 👉 **[Support Fuse Terminal on Giveth (Polygon)](https://www.giveth.io/project/fuse-terminal-quant-research-and-algorithmic-engine)**
+- 👉 **[Back Fuse Terminal on Juicebox (Base / Arbitrum / Optimism)](https://juicebox.money/base:42)** *(Supporters automatically receive `$FUSE` project tokens on Base)*
 
 ---
 
